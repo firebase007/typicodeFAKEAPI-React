@@ -1,5 +1,5 @@
 import React from "react";
-import { Jumbotron, Button, Fade, Container } from "reactstrap";
+import { Jumbotron,Badge, Button, Fade, Container } from "reactstrap";
 import styled from "styled-components";
 import { Redirect } from "react-router-dom";
 import PostList from './PostList';
@@ -59,18 +59,38 @@ class User extends React.Component {
               </Button>
             </p>
             {fadeIn ? <Fade in={fadeIn} tag="h5" className="mt-3">
-                <div style={{ border: "1px solid grey", maxWidth: "420px", marginBottom: "15px", padding:"5px" }}>
+                <div style={{ border: "1px solid grey", maxWidth: "420px", marginBottom: "15px", padding: "5px" }}>
                   <div>
-                    website: <a href="/">{user.website}</a>
+                    website: <Badge color="light" pill>
+                      <a href="/">{user.website}</a>
+                    </Badge>
                   </div>
                   <div>
-                    e-mail: {user.email}
+                    e-mail: <Badge color="light" pill>
+                      {user.email}
+                    </Badge>
                     <div>
-                      address: {user.address.street}, {user.address.suite}, {user.address.city}, {user.address.zipcode}
+                      address:<Badge color="light" pill>
+                        {user.address.street},{user.address.suite},{user.address.city}
+                      </Badge>
                     </div>
-                    <div>phone no: {user.phone}</div>
+                    <div>
+                      phone no:
+                      <Badge color="light" pill>
+                        {user.phone}
+                      </Badge>
+                    </div>
                   </div>
-                  <div>company details: {user.company.name}</div>
+                  <div>
+                    company details: <Badge color="light" pill>
+                      {user.company.name}
+                    </Badge>
+                  </div>
+                  <div>
+                    zipcode:<Badge color="light" pill>
+                      {user.address.zipcode}
+                    </Badge>
+                  </div>
                 </div>
               </Fade> : <span>
                 {" "}
