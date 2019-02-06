@@ -8,7 +8,7 @@ Playing with the Typicode API using ReactJS as the Front-end library
 - cd in the directory `cd [directory-name]`
 - run `npm install` from your terminal/command prompt
 - run `npm start`
-- Navigate to the url on the browser, ```(https://www.localhost:3000)```
+- Navigate to the url on the browser using this link, ```(https://www.localhost:3000)```
 
 ## RoadMap
 
@@ -22,9 +22,9 @@ Playing with the Typicode API using ReactJS as the Front-end library
 
 Check out the typicode API at this link [http://wwww.jsonplaceholder.typicode.com](http://wwww.jsonplaceholder.typicode.com)
 
-To see a list of users to login with, check out this API URI for the username, [http://jsonplaceholder.typicode.com/users](http://jsonplaceholder.typicode.com/users)
+To see a list of users to login with, check out this API URI for the username here, [http://jsonplaceholder.typicode.com/users](http://jsonplaceholder.typicode.com/users)
 
-Other resources can be found on the [http://wwww.jsonplaceholder.typicode.com](http://wwww.jsonplaceholder.typicode.com) as the case maybe.
+Other resources can be found on this link here,[http://wwww.jsonplaceholder.typicode.com](http://wwww.jsonplaceholder.typicode.com) as the case maybe.
 
 ## Case Study
 
@@ -44,6 +44,6 @@ Contributions are highly welcome, however, please ensure to follow the guideline
 
 ## Credits
 
-Special thanks to the ```Dreamlines``` recruitment team for giving me this opportunity to play around with this API
+Special thanks to ```Dreamlines``` for giving me this opportunity and for the open source API by ```Typicode```
 
 
