@@ -12,6 +12,10 @@ Playing with the Typicode API using ReactJS as the Front-end library
 
 ## RoadMap
 
+- Refactor all components
+- Look out for perfomance bottlenecks
+- Check for scalability concerns
+- Overhaul the entire UI as the current one is just for     testing out purposes
 - Add support for webpack
 - Add support for eslint and prettier code
 - Use styled components for the component styling
