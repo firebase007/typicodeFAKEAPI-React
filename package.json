@@ -1,7 +1,7 @@
 {
-  "name": "Dreamlines-Assignment",
+  "name": "Typicode API - React JS",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.2.1",
@@ -10,7 +10,8 @@
     "react-router-config": "^4.4.0-beta.6",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3",
-    "reactstrap": "^7.0.2",
+    "reactstrap": "^7.1.0",
+    "styled-components": "^4.1.3",
     "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
