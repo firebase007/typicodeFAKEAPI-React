@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import base_url from "../utils/api";
-import { Alert } from "reactstrap";
+import { Alert, Button } from "reactstrap";
 
 class Login extends Component {
   constructor(props) {
@@ -36,11 +36,7 @@ class Login extends Component {
     const { history } = this.props;
     const { userName, users } = this.state;
     if (!userName) {
-      return (
-        <div>
-          <Alert color="warning">kindly enter a username!</Alert>;
-        </div>
-      );
+      return;
     }
     users.map(user => {
       if (user.username === userName.trim()) {
@@ -64,45 +60,19 @@ class Login extends Component {
 
   render() {
     const { userName } = this.state;
-    return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center"
-        }}
-      >
-        <form
-          onSubmit={e => {
+    return <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+        <form onSubmit={e => {
             this.handleSubmit(e);
-          }}
-          style={{ maxWidth: "50%", marginTop: "150px", maxHeight: "80%" }}
-        >
+          }} style={{ maxWidth: "50%", marginTop: "150px", maxHeight: "80%" }}>
           <h1 className="">
             Please Login here. Only your user name is required!
           </h1>
-          <input
-            value={userName}
-            type="text"
-            name="username"
-            onChange={this.handleChange}
-            required={true}
-            style={{ height: "30px", width: "200px", borderRadius: "5px" }}
-          />
-          <button
-            style={{
-              flexDirection: "column",
-              borderStyle: "1px solid grey",
-              marginTop: "15px"
-            }}
-            onClick={this.handleSubmit}
-          >
+          <input value={userName} type="text" name="username" onChange={this.handleChange} required={true} style={{ height: "30px", width: "200px", borderRadius: "5px" }} />
+          <Button style={{ flexDirection: "column" }} onClick={this.handleSubmit} color="secondary">
             Login
-          </button>
+          </Button>
         </form>
-      </div>
-    );
+      </div>;
   }
 }
 

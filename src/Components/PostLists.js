@@ -18,7 +18,7 @@ const PostLists = (props) => {
               </div>
             </ListGroupItem>
           </div>
-        </ListGroup>;
+        </ListGroup>
       </div>;
 }
 

@@ -72,8 +72,7 @@ class PostList extends React.Component {
                 ) : null}
               </div>
             </div>
-            <hr />
-            {!!postList ? <div>
+            {!postList ? <div>
                 {" "}
                 <Spinner color="dark" />
               </div> : postList}
