@@ -1,5 +1,11 @@
 import React from "react";
-import { Jumbotron,Badge, Button, Fade, Container } from "reactstrap";
+import {
+  Jumbotron,
+  Badge,
+  Button,
+  Fade,
+  Container,
+} from "reactstrap";
 import styled from "styled-components";
 import { Redirect } from "react-router-dom";
 import UserPostList from './UserPostList';
@@ -13,7 +19,7 @@ class User extends React.Component {
   constructor(props) {
     super(props);
     console.log(this.props);
-    this.state = { user: null, fadeIn: true };
+    this.state = { user: null, fadeIn: false };
   }
 
   componentDidMount() {
@@ -29,7 +35,7 @@ class User extends React.Component {
       history.push("/login");
     };
   
-  toggle = () => {
+  toggleFadeIn = () => {
     this.setState({ fadeIn: !this.state.fadeIn });
   }
 
@@ -49,15 +55,35 @@ class User extends React.Component {
                 Logout
               </Button>
             </ButtonWrapper>
-            <h1 className="display-3">Welcome, {user.name}</h1>
+            <h1 className="display-3">Welcome, {user.name}!</h1>
             <hr className="my-2" />
-            <p className="lead">
-              <Button color="primary" onClick={this.toggle}>
-                Preview Personal Info
-              </Button>
-            </p>
-            {fadeIn ? <Fade in={fadeIn} tag="h5" className="mt-3">
+
+            <div>
+              <span>
+                {" "}
+                <h6>
+                  Just to be sure this is your personal space, preview your
+                  personal information ...
+                </h6>
+              </span>
+            </div>
+            {!fadeIn ? <p className="lead">
+                <Button color="primary" onClick={this.toggleFadeIn}>
+                  Preview Personal Info
+                </Button>
+              </p> : <Fade in={fadeIn} tag="h5" className="mt-3">
                 <div style={{ border: "1px solid grey", maxWidth: "420px", marginBottom: "15px", padding: "5px" }}>
+                  <div
+                    style={{
+                    position: "absolute",
+                    left: "350px",
+                    color: "grey",
+                    cursor: "pointer"
+                  }}
+                  onClick={this.toggleFadeIn}
+                  >
+                   <Badge color="info">Close</Badge> 
+                  </div>
                   <div>
                     website: <Badge color="light" pill>
                       <a href="/">{user.website}</a>
@@ -73,14 +99,14 @@ class User extends React.Component {
                       </Badge>
                     </div>
                     <div>
-                      phone no:
+                      phone:
                       <Badge color="light" pill>
                         {user.phone}
                       </Badge>
                     </div>
                   </div>
                   <div>
-                    company details: <Badge color="light" pill>
+                    company: <Badge color="light" pill>
                       {user.company.name}
                     </Badge>
                   </div>
@@ -90,14 +116,7 @@ class User extends React.Component {
                     </Badge>
                   </div>
                 </div>
-              </Fade> : <span>
-                {" "}
-                <h6>
-                  Just to be sure this is your personal space, 
-                preview your personal
-                information
-                </h6>
-              </span>}
+              </Fade>}
           </Container>
         </Jumbotron>
         <UserPostList currentUserPostListDetails={user} />

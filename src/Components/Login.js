@@ -65,10 +65,10 @@ class Login extends Component {
             this.handleSubmit(e);
           }} style={{ maxWidth: "50%", marginTop: "150px", maxHeight: "80%" }}>
           <h1 className="">
-            Please Login here. Only your user name is required!
+            Login here. Just your user name is required!
           </h1>
-          <input value={userName} type="text" name="username" onChange={this.handleChange} required={true} style={{ height: "30px", width: "200px", borderRadius: "5px" }} />
-          <Button style={{ flexDirection: "column" }} onClick={this.handleSubmit} color="secondary">
+          <input value={userName} type="text" name="username" onChange={this.handleChange} required={true} style={{ height: "30px", width: "250px", borderRadius: "5px", marginTop:"50px" }} />
+          <Button style={{ flexDirection: "column", margin:"5px" }} onClick={this.handleSubmit} color="secondary">
             Login
           </Button>
         </form>

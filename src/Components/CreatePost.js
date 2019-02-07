@@ -49,7 +49,7 @@ class CreatePost extends React.Component {
     });
   };
 
-  toggle = () => {
+  toggleModal = () => {
     this.setState(prevState => ({
       modal: !prevState.modal
     }));
@@ -61,7 +61,7 @@ class CreatePost extends React.Component {
           <Button color="danger" onClick={this.toggle}>
             {this.props.buttonLabel}
           </Button>
-          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+          <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
             <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
           <ModalBody>
             <div>

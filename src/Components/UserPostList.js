@@ -1,7 +1,6 @@
 import React from 'react';
-import Comments from './Comments';
 import CreatePost from './CreatePost';
-import { ListGroup, ListGroupItem, Spinner, Button } from "reactstrap";
+import {  Spinner, Button } from "reactstrap";
 import PostLists from './PostLists';
 
 class PostList extends React.Component {
@@ -48,7 +47,6 @@ class PostList extends React.Component {
               </div>;
         }
         let postList = userPostList.map(post => {
-            //refactor this into a new component
           return <div>
             <PostLists postLists={post}/>
           </div>
@@ -58,7 +56,7 @@ class PostList extends React.Component {
               {userPostList ? `Here are all your previous posts 
                 ${this.props.currentUserPostListDetails.name}, you currently have a total of ${postList.length} posts.` : <Spinner color="dark" />}
             </h3>
-            <h5>You can do better. Create a new post here,</h5>
+            <h5>You can do better. Create a new post here ...</h5>
             <div>
               <Button onClick={this.createNewPost}>
                 {createPost ? "Hide Post" : "Create Post"}
