@@ -2,17 +2,18 @@ import React from "react";
 import { Jumbotron,Badge, Button, Fade, Container } from "reactstrap";
 import styled from "styled-components";
 import { Redirect } from "react-router-dom";
-import PostList from './PostList';
+import UserPostList from './UserPostList';
 
 
 const ButtonWrapper = styled.div`
   margin-right: 20px;
 `;
+
 class User extends React.Component {
   constructor(props) {
     super(props);
     console.log(this.props);
-    this.state = { user: null, isLoggedIn: true, fadeIn: true };
+    this.state = { user: null, fadeIn: true };
   }
 
   componentDidMount() {
@@ -23,11 +24,8 @@ class User extends React.Component {
 
     handleLogout = e => {
       e.preventDefault();
-      this.setState({
-        isLoggedIn: false
-      });
       const { history } = this.props;
-      localStorage.removeItem("isLoggedin");
+      localStorage.removeItem("username");
       history.push("/login");
     };
   
@@ -36,10 +34,10 @@ class User extends React.Component {
   }
 
   render() {
-    const { user, isLoggedIn, fadeIn } = this.state;
-    // if (!isLoggedIn) {
-    //   return <Redirect to="/login" />;
-    // }
+    const { user, fadeIn } = this.state;
+    if (localStorage.getItem("username") === user) {
+      return <Redirect to="/login" />;
+    }
     if (!user) {
       return <div>Loading ...</div>;
     }
@@ -95,13 +93,14 @@ class User extends React.Component {
               </Fade> : <span>
                 {" "}
                 <h6>
-                  Click on the button above to preview your personal
-                  information
+                  Just to be sure this is your personal space, 
+                preview your personal
+                information
                 </h6>
               </span>}
           </Container>
         </Jumbotron>
-        <PostList currentLoggedInUser={user} />
+        <UserPostList currentUserPostListDetails={user} />
       </div>;
   }
 }
