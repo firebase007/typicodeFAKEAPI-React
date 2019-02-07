@@ -1,11 +1,10 @@
 import React, { Component } from "react";
+import base_url from "../utils/api";
+import { Alert, Button } from "reactstrap";
 
 class Login extends Component {
   constructor(props) {
     super(props);
-
-    console.log(this.props);
-
     this.state = {
       userName: "",
       users: []
@@ -13,7 +12,7 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch(`${base_url}/users`)
       .then(response => response.json())
       .then(responseData => {
         console.log(responseData);
@@ -27,7 +26,6 @@ class Login extends Component {
   }
 
   handleChange = e => {
-    console.log(this.state.userName, "username");
     this.setState({
       userName: e.target.value
     });
@@ -38,19 +36,26 @@ class Login extends Component {
     const { history } = this.props;
     const { userName, users } = this.state;
     if (!userName) {
-      console.log("kindly enter a username");
+      return;
     }
     users.map(user => {
-             if (user.username===userName.trim()) {
-               history.push({
-                 pathname: `/user/${user.username}`,
-                 state: { user: user }
-               });
-             } else {
-               console.log("kindly check your username again, and input the right value");
-            } 
-  
-    });  
+      if (user.username === userName.trim()) {
+        localStorage.setItem("username", JSON.stringify(user.username));
+        history.push({
+          pathname: `/user/${user.username}`,
+          state: { user: user }
+        });
+      } else {
+        return (
+          <div>
+            <Alert color="warning">
+              kindly check your username again, and input the right value!
+            </Alert>
+            ;
+          </div>
+        );
+      }
+    });
   };
 
   render() {
@@ -58,14 +63,14 @@ class Login extends Component {
     return <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
         <form onSubmit={e => {
             this.handleSubmit(e);
-          }} style={{maxWidth:"50%",marginTop:"150px", maxHeight:"80%" }}>
+          }} style={{ maxWidth: "50%", marginTop: "150px", maxHeight: "80%" }}>
           <h1 className="">
             Please Login here. Only your user name is required!
           </h1>
-          <input value={userName} type="text" name="username" onChange={this.handleChange} required={true} style={{ height: "30px", width:"200px", borderRadius:"5px" }} />
-          <button style={{flexDirection:"column", borderStyle:"1px solid grey",marginTop:"15px"}} onClick={this.handleSubmit}>
+          <input value={userName} type="text" name="username" onChange={this.handleChange} required={true} style={{ height: "30px", width: "200px", borderRadius: "5px" }} />
+          <Button style={{ flexDirection: "column" }} onClick={this.handleSubmit} color="secondary">
             Login
-          </button>
+          </Button>
         </form>
       </div>;
   }

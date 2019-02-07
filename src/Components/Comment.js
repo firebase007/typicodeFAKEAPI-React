@@ -2,10 +2,10 @@ import React from 'react';
 
 const Comment = (props) => {
     return <div key={props.allCommenters.id}>
-        <div>Name:{props.allCommenters.name}</div>
-        <div>E-mail: {props.allCommenters.email}</div>
-        <div>Body: {props.allCommenters.body}</div>
         <hr/>
+        <div>name:{props.allCommenters.name}</div>
+        <div>email: {props.allCommenters.email}</div>
+        <div>Comment: {props.allCommenters.body}</div>
       </div>;
 }
 

@@ -30,6 +30,21 @@ To see a list of users to login with, check out this API URI for the username he
 
 Other resources can be found on this link here,[http://wwww.jsonplaceholder.typicode.com](http://wwww.jsonplaceholder.typicode.com) as the case maybe.
 
+```
+###Usernames Available from the API for login
+- Bret
+- Antonette
+- Samantha
+- Karianne
+- Kamren
+- Leopoldo_Corkery
+- Elwyn.Skiles
+- Maxime_Nienow
+- Delphine
+- Moriah.Stanton
+
+```
+
 ## Case Study
 
 There is this large company with a website where posts of all company employees can be displayed and the public/customers can leave comments on the posts. The company wants more employees to publish post here, therefore they need you to
@@ -44,7 +59,7 @@ email of the commenting user so I can get in touch with them with one click and 
 
 ## Contributions
 
-Contributions are highly welcome, however, please ensure to follow the guidelines and roadmap.Lets how this goes, maybe we could write a tutorial about this and open source everything just for those just starting out to learn how to play around with APIs and React JS.
+Contributions are highly welcome, however, please ensure to follow the guidelines and roadmap. I would like a situation where i could write a tutorial about this and open source everything just for those starting out with building with React JS on how to play around with APIs and other stuff alike.
 
 ## Credits
 

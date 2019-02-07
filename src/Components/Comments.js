@@ -1,5 +1,6 @@
 import React from 'react';
 import Comment from './Comment';
+import { Button, Badge } from 'reactstrap';
 
 class Comments extends React.Component {
     constructor(props) {
@@ -46,10 +47,21 @@ class Comments extends React.Component {
         let allComments = comments.map(comment => {
             return <div><Comment allCommenters={comment}/></div>
         });
-        return <div>
-            {allComments.length} comments
-            <div><button onClick={this.displayComments}>{showComments ? "Hide Comments": "Show Comments"}</button></div>
-            {comments && showComments ? <div> {allComments}</div>: null}
+        return <div style={{display:"flex", flexDirection:"column"}}>
+            <span style={{flex:""}}>
+              <Badge color="light" pill>
+                {allComments.length} comments
+              </Badge>
+            </span>
+            <div>
+              <Button onClick={this.displayComments}>
+                {showComments ? "Hide Comments" : "Show Comments"}
+              </Button>
+            </div>
+            {comments && showComments ? <div>
+                {" "}
+                {allComments}
+              </div> : null}
           </div>;
 
         
