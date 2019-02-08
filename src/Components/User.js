@@ -72,7 +72,7 @@ class User extends React.Component {
                   Preview Personal Info
                 </Button>
               </p> : <Fade in={fadeIn} tag="h5" className="mt-3">
-                <div style={{ border: "1px solid grey", maxWidth: "420px", marginBottom: "15px", padding: "5px" }}>
+                <div style={{ border: "1px solid grey", maxWidth: "420px", marginBottom: "15px", padding: "5px", borderRadius:"3px", zIndex:"auto" }}>
                   <div
                     style={{
                     position: "absolute",

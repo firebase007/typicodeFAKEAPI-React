@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Badge } from "reactstrap";
 
 
 class CreatePost extends React.Component {
@@ -12,7 +12,12 @@ class CreatePost extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     const { allPostList, userIds } = this.props;
+    const { modal } = this.state;
     const userId = userIds.id;
+    
+    this.setState({
+      modal: !modal
+    })
 
     fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
@@ -57,31 +62,37 @@ class CreatePost extends React.Component {
 
   render() {
     const { title, post } = this.state;
+    const { userIds } = this.props;
     return <div>
-          <Button color="danger" onClick={this.toggle}>
-            {this.props.buttonLabel}
+        <div>
+          <Button onClick={this.toggleModal} style={{ marginLeft: "25px", marginBottom: "7px" }}>
+            Create New Post
           </Button>
-          <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
-            <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+        </div>
+        <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
+          <ModalHeader toggle={this.toggle}>
+            Hey {userIds.username}, create a new post here
+          </ModalHeader>
           <ModalBody>
             <div>
-              Title: <input type="text" value={title} onChange={this.handleTitleChange} className="" />
-        </div>
-        <div>
-          Body:
-          <textarea rows="4" cols="50" type="text" value={post} onChange={this.handlePostChange} className="" />
-        </div>
-            </ModalBody>
-            <ModalFooter>
-              <Button color="primary" onClick={this.handleSubmit}>
-                Create Post
-              </Button> <Button color="secondary" onClick={this.toggle}>
-                Cancel
-              </Button>
-            </ModalFooter>
-          </Modal>
-    </div>
-  ;
+              <Badge color="light">title:</Badge> <input type="text" value={title} onChange={this.handleTitleChange} style={{ borderRadius: "3px", margin: "5px" }} />
+            </div>
+            <div>
+              <span style={{ marginTop: "20px" }}>
+                <Badge color="light">post:</Badge>
+              </span>
+              <textarea rows="3" cols="50" type="text" value={post} onChange={this.handlePostChange} style={{ borderRadius: "3px", margin: "5px" }} />
+            </div>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.handleSubmit}>
+              Create Post
+            </Button> <Button color="secondary" onClick={this.toggleModal}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </Modal>
+      </div>;
   }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import CreatePost from './CreatePost';
 import {  Spinner, Button } from "reactstrap";
 import PostLists from './PostLists';
+import CreatePost from './CreatePost';
 
 class PostList extends React.Component {
 
@@ -10,7 +10,6 @@ class PostList extends React.Component {
         console.log(this.props);
         this.state = {
             userPostList: [],
-            createPost: false,
         }
     }
 
@@ -30,15 +29,9 @@ class PostList extends React.Component {
           });
     }
 
-    createNewPost = (e) => {
-        e.preventDefault();
-        this.setState({
-            createPost: !this.state.createPost
-        })
-    }
 
     render() {
-      const { userPostList, createPost } = this.state;
+      const { userPostList } = this.state;
       const { currentUserPostListDetails } = this.props;
         if (!userPostList) {
             return <div>
@@ -51,30 +44,27 @@ class PostList extends React.Component {
             <PostLists postLists={post}/>
           </div>
             });
-        return <div>
-            <h3>
+      return <div>
+          <div>
+            <h3 style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
               {userPostList ? `Here are all your previous posts 
                 ${this.props.currentUserPostListDetails.name}, you currently have a total of ${postList.length} posts.` : <Spinner color="dark" />}
             </h3>
-            <h5>You can do better. Create a new post here ...</h5>
+            <h5 style={{ margin: "20px" }}>
+              You can do better ...
+            </h5>
             <div>
-              <Button onClick={this.createNewPost}>
-                {createPost ? "Hide Post" : "Create Post"}
-              </Button>
-              <div>
-                {createPost ? (
-                  <CreatePost
-                    userIds={currentUserPostListDetails}
-                    allPostList={postList}
-                  />
-                ) : null}
-              </div>
+                <CreatePost
+                  userIds={currentUserPostListDetails}
+                  allPostList={postList}
+                />
             </div>
-            {!postList ? <div>
-                {" "}
-                <Spinner color="dark" />
-              </div> : postList}
-          </div>;
+          </div>
+          {!postList ? <div>
+              {" "}
+              <Spinner color="dark" />
+            </div> : postList}
+        </div>;
     } 
 
 }
