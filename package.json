@@ -2,6 +2,10 @@
   "name": "Typicode API - React JS",
   "version": "0.1.0",
   "private": false,
+  "engines": {
+    "npm": "6.4.1",
+    "node": "10.10.0"
+  },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.2.1",
