@@ -51,13 +51,11 @@ class PostList extends React.Component {
                 ${this.props.currentUserPostListDetails.name}, you currently have a total of ${postList.length} posts.` : <Spinner color="dark" />}
             </h3>
             <h5 style={{ margin: "20px" }}>
-              You can do better ...
+              You can do better{" "}
+              {this.props.currentUserPostListDetails.username} ...
             </h5>
             <div>
-                <CreatePost
-                  userIds={currentUserPostListDetails}
-                  allPostList={postList}
-                />
+              <CreatePost userIds={currentUserPostListDetails} allPostList={postList} />
             </div>
           </div>
           {!postList ? <div>
