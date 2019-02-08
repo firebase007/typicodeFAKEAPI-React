@@ -1,7 +1,8 @@
 import React from 'react';
-import {  Spinner, Button } from "reactstrap";
+import {  Spinner } from "reactstrap";
 import PostLists from './PostLists';
 import CreatePost from './CreatePost';
+import TagLine from './TagLine';
 
 class PostList extends React.Component {
 
@@ -45,23 +46,9 @@ class PostList extends React.Component {
           </div>
             });
       return <div>
-          <div>
-            <h3 style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
-              {userPostList ? `Here are all your previous posts 
-                ${this.props.currentUserPostListDetails.name}, you currently have a total of ${postList.length} posts.` : <Spinner color="dark" />}
-            </h3>
-            <h5 style={{ margin: "20px" }}>
-              You can do better{" "}
-              {this.props.currentUserPostListDetails.username} ...
-            </h5>
-            <div>
-              <CreatePost userDetails={currentUserPostListDetails} allPostList={postList} />
+        <div>
+          <TagLine userPostList={userPostList} postList={postList} currentUserPostListDetails={currentUserPostListDetails}/>
             </div>
-          </div>
-          {!postList ? <div>
-              {" "}
-              <Spinner color="dark" />
-            </div> : postList}
         </div>;
     } 
 
