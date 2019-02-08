@@ -11,9 +11,9 @@ class CreatePost extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { allPostList, userIds } = this.props;
+    const { allPostList, userDetails } = this.props;
     const { modal } = this.state;
-    const userId = userIds.id;
+    const userId = userDetails.id;
     
     this.setState({
       modal: !modal
@@ -62,7 +62,7 @@ class CreatePost extends React.Component {
 
   render() {
     const { title, post } = this.state;
-    const { userIds } = this.props;
+    const { userDetails } = this.props;
     return <div>
         <div>
           <Button onClick={this.toggleModal} style={{ marginLeft: "25px", marginBottom: "7px" }}>
@@ -71,7 +71,7 @@ class CreatePost extends React.Component {
         </div>
         <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>
-            Hey {userIds.username}, create a new post here
+            Hey {userDetails.username}, create a new post here
           </ModalHeader>
           <ModalBody>
             <div>

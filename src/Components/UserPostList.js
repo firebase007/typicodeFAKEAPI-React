@@ -55,7 +55,7 @@ class PostList extends React.Component {
               {this.props.currentUserPostListDetails.username} ...
             </h5>
             <div>
-              <CreatePost userIds={currentUserPostListDetails} allPostList={postList} />
+              <CreatePost userDetails={currentUserPostListDetails} allPostList={postList} />
             </div>
           </div>
           {!postList ? <div>
