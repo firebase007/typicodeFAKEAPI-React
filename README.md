@@ -31,7 +31,7 @@ To see a list of usernames to login with, check out this API URI, [http://jsonpl
 Alternatively,
 
 ```
-### Usernames Available from the API for login
+These are the usernames Available from the API for login
 - Bret
 - Antonette
 - Samantha
