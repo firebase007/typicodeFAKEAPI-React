@@ -41,7 +41,7 @@ class Login extends Component {
     users.map(user => {
       if (user.username === userName.trim()) {
         localStorage.setItem("username", JSON.stringify(user.username));
-        history.push({
+        return history.push({
           pathname: `/user/${user.username}`,
           state: { user: user }
         });

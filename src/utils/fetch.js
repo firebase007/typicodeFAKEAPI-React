@@ -23,4 +23,18 @@ export const createPost = () => {
 }
 
 
+//fetch all posts from the api
+
+export const allPosts = () => {
+  fetch(`${base_url}/posts`)
+    .then(response => response.json())
+    .then(responseData => {
+      console.log(responseData);
+      return responseData;
+    })
+    .catch(error => {
+      return error;
+    });
+}
+
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import {  Spinner } from "reactstrap";
 import PostLists from './PostLists';
-import CreatePost from './CreatePost';
 import TagLine from './TagLine';
 
 class PostList extends React.Component {
