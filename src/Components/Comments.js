@@ -1,6 +1,7 @@
 import React from 'react';
 import Comment from './Comment';
-import { Button, Badge } from 'reactstrap';
+import { Button, Badge
+ } from 'reactstrap';
 
 class Comments extends React.Component {
   constructor(props) {
