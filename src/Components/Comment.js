@@ -1,5 +1,6 @@
 import React from 'react';
 import { Badge } from "reactstrap";
+
 const Comment = (props) => {
     return <div key={props.allCommenters.id}>
         <hr />

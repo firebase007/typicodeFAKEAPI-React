@@ -11,11 +11,11 @@ const Tagline = (props) => {
                 ${props.currentUserPostListDetails.name}, you currently have a total of ${props.postList.length} posts.` : <Spinner color="dark" />}
           </h3>
           <h5 style={{ margin: "20px" }}>
-            You can do better{" "}
-            {props.currentUserPostListDetails.username} ...
+            You can do better, {props.currentUserPostListDetails.username}{" "}
+            ...
           </h5>
           <div>
-            <CreatePost userDetails={props.currentUserPostListDetails} allPostList={props.postList} />
+            <CreatePost userDetails={props.currentUserPostListDetails} allPostList={props.userPostList} />
           </div>
         </div>
         {!props.postList ? <div>

@@ -12,19 +12,18 @@ class CreatePost extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     const { allPostList, userDetails } = this.props;
+    console.log(allPostList, 'allPostList');
     const { modal } = this.state;
     const userId = userDetails.id;
     
-    this.setState({
-      modal: !modal
-    })
+    this.setState({ modal: !modal, post: "", title: "" });
 
     fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
       body: JSON.stringify({
         title: `${this.state.title}`,
         body: `${this.state.post}`,
-        userId: `${userId}`
+        userId: userId
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8"
@@ -35,6 +34,7 @@ class CreatePost extends React.Component {
         console.log(responseData);
         if (responseData) {
           console.log(allPostList.push(responseData));
+          return allPostList.push(responseData);
         }
       })
       .catch(error => {
